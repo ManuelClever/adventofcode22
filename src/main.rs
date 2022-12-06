@@ -1,10 +1,10 @@
+extern crate core;
+
 mod solve;
 mod factory;
 
-use std::fmt::Error;
 use std::io;
 use std::num::ParseIntError;
-use crate::solve::Solve;
 use crate::factory::create_calculator;
 
 fn main() {
@@ -51,12 +51,12 @@ fn main() {
     }
 
     match create_calculator(&day) {
-        Ok(_) => {
+        Ok(calculator) => {
             let solution: i128;
             if part == 1 {
-                solution = calculator.unwrap().solve_1();
+                solution = calculator.solve_1();
             } else {
-                solution = calculator.unwrap().solve_2();
+                solution = calculator.solve_2();
             }
             println!("The solution of Day {} Part {} is {}", day, part, solution);
         }
